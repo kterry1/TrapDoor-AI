@@ -1,6 +1,7 @@
 import "./welcome-page.css";
 import AnimatedSheep from "../../assets/silly-sheep.svg";
 import { useState } from "react";
+import ScratchCardResume from "../scratch-off-resume/scratch-off-resume";
 
 interface WelcomePageProps {
   name?: string;
@@ -8,30 +9,39 @@ interface WelcomePageProps {
 
 const WelcomePage = ({ name }: WelcomePageProps) => {
   const [peek, setPeek] = useState(false);
-
   return (
     <>
-      <div className={"welcome-page-buttons-container"}>
-        <button disabled={peek} onClick={() => setPeek(true)}>
-          CLICK TO KNOCK
-        </button>
-      </div>
-      <button className={"hover-button"}>HOVER TO OPEN THE DOOR</button>
-      <div className={peek ? "mouse-logo disabled" : "mouse-logo"}>
-        <div className={"top-door"}>
-          <div className={"mid-text"}>{name}</div>
+      <div className={"welcome-page-container"}>
+        <div className={"welcome-page-buttons-container"}>
+          <button
+            className={"knock-button"}
+            disabled={peek}
+            onClick={() => setPeek(true)}
+          >
+            CLICK TO KNOCK
+          </button>
+          <button className={"hover-button"}>HOVER TO OPEN THE DOOR</button>
+          <div className={"mystery-container"}>
+            <button className={"mystery-button"}>MYSTERY</button>
+            <div className={"scratch-off-resume"}>
+              <ScratchCardResume />
+            </div>
+          </div>
         </div>
+        <div className={peek ? "mouse-logo disabled" : "mouse-logo"}>
+          <div className={"top-door top-door-open"}>
+            <div className={"mid-text"}>{name}</div>
+          </div>
 
-        <img
-          draggable={false}
-          onAnimationEnd={() => setPeek(false)}
-          className={peek ? `animated-sheep-peek` : `animated-sheep`}
-          alt={"animated sheep"}
-          src={AnimatedSheep}
-        />
+          <img
+            draggable={false}
+            onAnimationEnd={() => setPeek(false)}
+            className={peek ? `animated-sheep-peek` : `animated-sheep`}
+            alt={"animated sheep"}
+            src={AnimatedSheep}
+          />
+        </div>
       </div>
-      <button className={"other-works"}>CHECK OUT OTHER WORKS</button>
-      {/* <h1 className={"call-to-action-message"}>HOVER TO OPEN THE DOOR</h1> */}
     </>
   );
 };
