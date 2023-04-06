@@ -1,7 +1,6 @@
 import "./welcome-page.css";
 import AnimatedSheep from "../../assets/silly-sheep.svg";
 import { useState } from "react";
-import ScratchCardResume from "../scratch-off-resume/scratch-off-resume";
 
 interface WelcomePageProps {
   name?: string;
@@ -22,10 +21,7 @@ const WelcomePage = ({ name }: WelcomePageProps) => {
           </button>
           <button className={"hover-button"}>HOVER TO OPEN THE DOOR</button>
           <div className={"mystery-container"}>
-            <button className={"mystery-button"}>MYSTERY</button>
-            <div className={"scratch-off-resume"}>
-              <ScratchCardResume />
-            </div>
+            <button className={"mystery-button"}>CONTACT</button>
           </div>
         </div>
         <div className={peek ? "mouse-logo disabled" : "mouse-logo"}>
