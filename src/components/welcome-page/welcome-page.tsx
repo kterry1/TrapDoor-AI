@@ -1,42 +1,36 @@
 import "./welcome-page.css";
-import AnimatedSheep from "../../assets/silly-sheep.svg";
+import AnimatedSheepSVG from "../../assets/silly-sheep.svg";
 import { useState } from "react";
+import Button from "../button";
+import TrapDoor from "../trap-door";
 
-interface WelcomePageProps {
-  name?: string;
+interface WelcomePageProp {
+  displayedText?: string;
 }
 
-const WelcomePage = ({ name }: WelcomePageProps) => {
+const WelcomePage = ({ displayedText }: WelcomePageProp): JSX.Element => {
   const [peek, setPeek] = useState(false);
   return (
     <>
       <div className={"welcome-page-container"}>
         <div className={"welcome-page-buttons-container"}>
-          <button
-            className={"knock-button"}
+          <Button
+            displayedText="CLICK TO KNOCK"
+            buttonTheme="knock"
             disabled={peek}
-            onClick={() => setPeek(true)}
-          >
-            CLICK TO KNOCK
-          </button>
-          <button className={"hover-button"}>HOVER TO OPEN THE DOOR</button>
-          <div className={"mystery-container"}>
-            <button className={"mystery-button"}>CONTACT</button>
-          </div>
-        </div>
-        <div className={peek ? "mouse-logo disabled" : "mouse-logo"}>
-          <div className={"top-door top-door-open"}>
-            <div className={"mid-text"}>{name}</div>
-          </div>
-
-          <img
-            draggable={false}
-            onAnimationEnd={() => setPeek(false)}
-            className={peek ? `animated-sheep-peek` : `animated-sheep`}
-            alt={"animated sheep"}
-            src={AnimatedSheep}
+            handleClick={() => setPeek(true)}
           />
+          <Button displayedText="HOVER TO OPEN THE DOOR" buttonTheme="hover" />
+          <div className="ai-container">
+            <Button displayedText="LET'S CHAT - AI" buttonTheme="ai" />
+          </div>
         </div>
+        <TrapDoor
+          displayedText="Kevin Terry [Software Engineer]"
+          peek={peek}
+          behindDoorImg={AnimatedSheepSVG}
+          handleAnimationEnd={() => setPeek(false)}
+        />
       </div>
     </>
   );

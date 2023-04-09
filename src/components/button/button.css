@@ -1,0 +1,45 @@
+.disabled {
+  pointer-events: none;
+}
+
+button {
+  background-color: #fbeee0;
+  border-radius: 30px;
+  min-width: 250px;
+  max-width: 290px;
+  max-height: 50px;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 0 18px;
+  line-height: 50px;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.knock-button {
+  border: 1px solid #ea5455;
+  box-shadow: #ea5455 4px 4px 0 0;
+  color: #ea5455;
+}
+
+.knock-button:active {
+  box-shadow: #ea5455 2px 2px 0 0;
+  transform: translate(2px, 2px);
+}
+
+.hover-button {
+  border: 1px solid #002b5b;
+  box-shadow: #002b5b 4px 4px 0 0;
+  color: #002b5b;
+}
+
+.ai-button {
+  border: 1px solid #984063;
+  box-shadow: #984063 4px 4px 0 0;
+  color: #984063;
+}
