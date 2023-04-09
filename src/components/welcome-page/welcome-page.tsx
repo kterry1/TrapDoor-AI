@@ -4,16 +4,13 @@ import { useState } from "react";
 import Button from "../button";
 import TrapDoor from "../trap-door";
 
-interface WelcomePageProp {
-  displayedText?: string;
-}
+const WelcomePage = (): JSX.Element => {
+  const [peek, setPeek] = useState<boolean>(false);
 
-const WelcomePage = ({ displayedText }: WelcomePageProp): JSX.Element => {
-  const [peek, setPeek] = useState(false);
   return (
     <>
-      <div className={"welcome-page-container"}>
-        <div className={"welcome-page-buttons-container"}>
+      <div className="welcome-page-container">
+        <div className="welcome-page-buttons-container">
           <Button
             displayedText="CLICK TO KNOCK"
             buttonTheme="knock"
