@@ -1,0 +1,54 @@
+.chat-bubble {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 3px;
+  font-size: 12px;
+  background-color: #f9f5eb;
+  color: #774f38;
+  padding: 30px;
+  border-radius: 11px;
+  position: relative;
+  font-family: "Baloo 2", cursive;
+  max-width: 200px;
+}
+
+.typewriter {
+  animation: typing 4s steps(40, end), blink-caret 0.75s step-end infinite;
+  overflow: hidden;
+}
+
+.chat-bubble::after {
+  content: ".";
+  font-weight: bold;
+  -webkit-text-fill-color: #f9f5eb;
+  text-align: left;
+  font-size: 55px;
+  width: 55px;
+  height: 11px;
+  line-height: 30px;
+  border-radius: 11px;
+  background-color: #f9f5eb;
+  position: absolute;
+  display: block;
+  bottom: -30px;
+  left: 0;
+  z-index: -2;
+}
+
+/* Define the typing animation */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* Define the blinking caret animation */
+@keyframes blink-caret {
+  50% {
+    border-color: transparent;
+  }
+}

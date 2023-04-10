@@ -17,7 +17,7 @@ const Button = ({
 }: ButtonProps) => {
   return (
     <button
-      className={`${buttonTheme}-button`}
+      className={`${buttonTheme}-button button`}
       disabled={disabled}
       onClick={handleClick}
     >
