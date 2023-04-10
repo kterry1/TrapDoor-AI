@@ -1,6 +1,6 @@
 import "./side-links.css";
-import githubSVG from "./assets/github.svg";
-import linkedInSVG from "./assets/linkedin.svg";
+import githubSVG from "../../assets/github.svg";
+import linkedInSVG from "../../assets/linkedin.svg";
 
 const SideLinks = (): JSX.Element => {
   return (

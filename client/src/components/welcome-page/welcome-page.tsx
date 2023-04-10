@@ -3,6 +3,7 @@ import AnimatedSheepSVG from "../../assets/silly-sheep.svg";
 import { useState } from "react";
 import Button from "../button";
 import TrapDoor from "../trap-door";
+import SideLinks from "../side-links";
 
 const WelcomePage = (): JSX.Element => {
   const [peek, setPeek] = useState<boolean>(false);
@@ -28,6 +29,7 @@ const WelcomePage = (): JSX.Element => {
           behindDoorImg={AnimatedSheepSVG}
           handleAnimationEnd={() => setPeek(false)}
         />
+        <SideLinks />
       </div>
     </>
   );
