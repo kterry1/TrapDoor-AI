@@ -1,39 +1,93 @@
+.chat-bubble-container {
+  position: absolute;
+}
 .chat-bubble {
-  text-align: center;
+  box-sizing: border-box;
   text-transform: uppercase;
   font-weight: bold;
   letter-spacing: 3px;
   font-size: 12px;
-  background-color: #f9f5eb;
-  color: #774f38;
-  padding: 30px;
-  border-radius: 11px;
-  position: relative;
+  background-color: #e4dccf;
+  border-top: 50px #984063 solid;
+  border-right: 1px #984063 solid;
+  border-left: 1px #984063 solid;
+  border-bottom: 1px #984063 solid;
+  border-radius: 25px;
+  color: #984063;
+  padding: 20px;
+  margin-top: 20px;
   font-family: "Baloo 2", cursive;
-  max-width: 200px;
+  width: 270px;
+  height: 450px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  animation: grow-chat-box 2s ease-in-out;
+}
+
+.exit-chat {
+  position: absolute;
+  top: 35px;
+  right: 12px;
+  cursor: pointer;
+}
+
+.reset-chat-prompt {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  border-radius: 0px 0px 25px 25px;
+  height: 50px;
+  color: #002b5b;
+  border: 1px #002b5b solid;
+  background-color: #e4dccf;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  cursor: pointer;
+}
+
+.reset-chat-prompt:hover {
+  background-color: #002a5b1f;
+}
+
+.chat-enter {
+  opacity: 0;
+}
+
+.chat-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in-out;
+}
+
+.chat-exit {
+  opacity: 1;
+}
+
+.chat-exit-active {
+  opacity: 0;
+  transition: opacity 500ms ease-in-out;
+}
+
+@keyframes reset-chat-prompt-animation {
+  from {
+    bottom: 100%;
+  }
+  to {
+    bottom: 0;
+  }
+}
+
+@keyframes grow-chat-box {
+  from {
+    height: 0;
+  }
+  to {
+    height: 450px;
+  }
 }
 
 .typewriter {
   animation: typing 4s steps(40, end), blink-caret 0.75s step-end infinite;
   overflow: hidden;
-}
-
-.chat-bubble::after {
-  content: ".";
-  font-weight: bold;
-  -webkit-text-fill-color: #f9f5eb;
-  text-align: left;
-  font-size: 55px;
-  width: 55px;
-  height: 11px;
-  line-height: 30px;
-  border-radius: 11px;
-  background-color: #f9f5eb;
-  position: absolute;
-  display: block;
-  bottom: -30px;
-  left: 0;
-  z-index: -2;
 }
 
 /* Define the typing animation */

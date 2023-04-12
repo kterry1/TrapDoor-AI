@@ -5,7 +5,7 @@ require("dotenv").config();
 const { Configuration, OpenAIApi } = require("openai");
 
 const configuration = new Configuration({
-  organization: "org-VVG2wwHRXzoJ3o0jBeC2BtMC",
+  organization: process.env.OPENAI_ORGANIZATION_KEY,
   apiKey: process.env.OPENAI_API_KEY,
 });
 const openai = new OpenAIApi(configuration);
@@ -19,7 +19,7 @@ app.post("/chat", async (req, res) => {
   console.log(req.body);
   const completion = await openai.createCompletion({
     model: "text-davinci-003",
-    prompt: `Write a 1 sentence essay about ${req.body.prompt} - explain it to me like I'm 5.`,
+    prompt: `${req.body.prompt} - answer within 3 sentences.`,
     temperature: 0.3,
     max_tokens: 150,
     top_p: 1.0,

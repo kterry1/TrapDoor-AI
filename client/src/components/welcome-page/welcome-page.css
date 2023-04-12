@@ -8,8 +8,9 @@
 .welcome-page-buttons-container {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-evenly;
   margin-bottom: 120px;
   width: 80vw;
   max-height: 100px;
+  gap: 10px;
 }
