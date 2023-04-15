@@ -24,11 +24,10 @@ async function fetchData(
 }
 
 const WelcomePage = (): JSX.Element => {
-  const [peek, setPeek] = useState<React.SetStateAction<boolean>>(false);
-  const [activatedChat, setActivatedChat] =
-    useState<React.SetStateAction<boolean>>(false);
-  const [prompt, setPrompt] = useState<React.SetStateAction<string>>("");
-  const [data, setData] = useState<React.SetStateAction<string>>("");
+  const [peek, setPeek] = useState<boolean>(false);
+  const [activatedChat, setActivatedChat] = useState<boolean>(false);
+  const [prompt, setPrompt] = useState<string>("");
+  const [data, setData] = useState<string>("");
   const inputRef = useRef<HTMLInputElement | null>(null);
 
   const handleEntered = () => {

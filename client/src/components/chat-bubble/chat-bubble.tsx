@@ -2,15 +2,13 @@ import "./chat-bubble.css";
 import { useWindupString } from "windups";
 import ExitSVG from "../../assets/exit.svg";
 
-function ChatBubble({
-  data = "",
-  handleReset,
-  handleExit,
-}: {
+interface ChatBubbleProps {
   data: string;
   handleReset: React.MouseEventHandler<HTMLButtonElement>;
   handleExit: React.MouseEventHandler<HTMLImageElement>;
-}) {
+}
+
+function ChatBubble({ data = "", handleReset, handleExit }: ChatBubbleProps) {
   const [windup] = useWindupString("AI: " + data, { skipped: false });
 
   return (
