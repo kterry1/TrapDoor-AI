@@ -16,7 +16,6 @@ app.use(cors());
 
 //endpoint for ChatGPT
 app.post("/chat", async (req, res) => {
-  console.log(req.body);
   const completion = await openai.createCompletion({
     model: "text-davinci-003",
     prompt: `${req.body.prompt} - answer within 3 sentences.`,
