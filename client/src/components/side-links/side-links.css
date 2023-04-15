@@ -10,7 +10,7 @@
   width: 1px;
   height: 100px;
   margin: 10px auto;
-  background-color: #984063;
+  background-color: var(--button-brown-color);
 }
 
 .side-links-container::after {
@@ -19,7 +19,7 @@
   width: 1px;
   height: 90px;
   margin: 10px auto;
-  background-color: #984063;
+  background-color: var(--button-brown-color);
 }
 
 .link {
@@ -29,7 +29,7 @@
   width: 15px;
   height: 15px;
   margin: 30px 0;
-  color: #984063;
+  color: var(--button-brown-color);
 }
 
 .link:hover {

@@ -5,7 +5,7 @@
   margin: 0 80px;
   border-radius: 35px;
   background-color: #f9f5eb;
-  color: #002b5b;
+  color: var(--button-blue-color);
   font-size: 18px;
   transition: 6s;
   width: 250px;

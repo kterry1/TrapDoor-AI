@@ -7,13 +7,13 @@
   font-weight: bold;
   letter-spacing: 3px;
   font-size: 12px;
-  background-color: #e4dccf;
-  border-top: 50px #984063 solid;
-  border-right: 1px #984063 solid;
-  border-left: 1px #984063 solid;
-  border-bottom: 1px #984063 solid;
+  background-color: var(--primary-bg-color);
+  border-top: 50px var(--button-brown-color) solid;
+  border-right: 1px var(--button-brown-color) solid;
+  border-left: 1px var(--button-brown-color) solid;
+  border-bottom: 1px var(--button-brown-color) solid;
   border-radius: 25px;
-  color: #984063;
+  color: var(--button-brown-color);
   padding: 20px;
   margin-top: 20px;
   font-family: "Baloo 2", cursive;
@@ -37,9 +37,9 @@
   width: 100%;
   border-radius: 0px 0px 25px 25px;
   height: 50px;
-  color: #002b5b;
-  border: 1px #002b5b solid;
-  background-color: #e4dccf;
+  color: var(--button-blue-color);
+  border: 1px var(--button-blue-color) solid;
+  background-color: var(--primary-bg-color);
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
     rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
   cursor: pointer;

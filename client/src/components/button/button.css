@@ -3,7 +3,7 @@
 }
 
 .button {
-  background-color: #fbeee0;
+  background-color: var(--button-bg-color);
   border-radius: 30px;
   min-width: 270px;
   max-width: 290px;
@@ -22,32 +22,32 @@
 }
 
 .knock-button {
-  border: 1px solid #ea5455;
-  box-shadow: #ea5455 4px 4px 0 0;
-  color: #ea5455;
+  border: 1px solid var(--button-red-color);
+  box-shadow: var(--button-red-color) 4px 4px 0 0;
+  color: var(--button-red-color);
 }
 
 .knock-button:active {
-  box-shadow: #ea5455 2px 2px 0 0;
+  box-shadow: var(--button-red-color) 2px 2px 0 0;
   transform: translate(2px, 2px);
 }
 
 .hover-button {
-  border: 1px solid #002b5b;
-  box-shadow: #002b5b 4px 4px 0 0;
-  color: #002b5b;
+  border: 1px solid var(--button-blue-color);
+  box-shadow: var(--button-blue-color) 4px 4px 0 0;
+  color: var(--button-blue-color);
   min-width: 290px;
 }
 
 .ai-button {
   position: absolute;
-  border: 1px solid #984063;
-  box-shadow: #984063 4px 4px 0 0;
-  color: #984063;
+  border: 1px solid var(--button-brown-color);
+  box-shadow: var(--button-brown-color) 4px 4px 0 0;
+  color: var(--button-brown-color);
 }
 
 input:focus {
-  outline: #984063;
+  outline: var(--button-brown-color);
 }
 
 input {

@@ -92,9 +92,16 @@ const WelcomePage = (): JSX.Element => {
                       }}
                     />
                     <ChatBubble
-                      handleExit={() => setActivatedChat(false)}
+                      handleExit={() => {
+                        setActivatedChat(false);
+                        setData("");
+                        setPrompt("");
+                      }}
                       data={data}
-                      handleReset={() => setPrompt("")}
+                      handleReset={() => {
+                        setData("");
+                        setPrompt("");
+                      }}
                     />
                   </div>
                 </CSSTransition>

@@ -1,5 +1,14 @@
+:root {
+  --primary-bg-color: #e4dccf;
+  --button-bg-color: #fbeee0;
+  --button-red-color: #ea5455;
+  --button-blue-color: #002b5b;
+  --button-brown-color: #984063;
+  --font-family: "Baloo 2", cursive;
+}
+
 body {
-  background-color: #e4dccf;
+  background-color: var(--primary-bg-color);
   display: flex;
   justify-content: center;
   align-items: center;
