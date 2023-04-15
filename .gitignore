@@ -35,3 +35,8 @@ server/.env.*.local
 *.njsproj
 *.sln
 *.sw?
+
+node_modules/
+dist/
+*.log
+*.env

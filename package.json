@@ -6,6 +6,9 @@
     "lint-staged": "^13.2.1",
     "typescript": "^5.0.4"
   },
+  "scripts": {
+    "run-dev-commands": "(cd server && node index.ts) && (cd ../client && pnpm dev)"
+  },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
