@@ -17,7 +17,6 @@ async function fetchData(
 ) {
   try {
     const response = await axios.post(url, data);
-    console.log(response.data);
     setData(response.data);
   } catch (error) {
     console.error(`Error fetching data: ${error}`);
