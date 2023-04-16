@@ -31,6 +31,7 @@ describe('Button', () => {
     const props = createTestProps({ disabled: true });
     render(<Button {...props} />);
     const button = await screen.findByRole('button');
+    //@ts-ignore
     expect(button).toBeDisabled();
   });
 });
