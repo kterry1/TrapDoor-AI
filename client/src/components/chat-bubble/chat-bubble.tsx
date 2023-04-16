@@ -1,15 +1,15 @@
-import "./chat-bubble.css";
-import { useWindupString } from "windups";
-import ExitSVG from "../../assets/exit.svg";
+import './chat-bubble.css';
+import { useWindupString } from 'windups';
+import ExitSVG from '../../assets/exit.svg';
 
-interface ChatBubbleProps {
+export interface ChatBubbleProps {
   data: string;
   handleReset: React.MouseEventHandler<HTMLButtonElement>;
   handleExit: React.MouseEventHandler<HTMLImageElement>;
 }
 
-function ChatBubble({ data = "", handleReset, handleExit }: ChatBubbleProps) {
-  const [windup] = useWindupString("AI: " + data, { skipped: false });
+function ChatBubble({ data = '', handleReset, handleExit }: ChatBubbleProps) {
+  const [windup] = useWindupString('AI: ' + data, { skipped: false });
 
   return (
     <div>

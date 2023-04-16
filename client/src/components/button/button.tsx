@@ -1,8 +1,8 @@
-import "./button.css";
+import './button.css';
 
-type ButtonThemeType = "hover" | "knock" | "ai";
+type ButtonThemeType = 'hover' | 'knock' | 'ai';
 
-interface ButtonProps {
+export interface ButtonProps {
   displayedText?: string;
   buttonTheme: ButtonThemeType;
   handleClick?: React.MouseEventHandler<HTMLButtonElement>;

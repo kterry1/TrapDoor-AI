@@ -1,6 +1,6 @@
-import "./trap-door.css";
+import './trap-door.css';
 
-interface TrapDoorProps {
+export interface TrapDoorProps {
   displayedText: string;
   peek: boolean;
   handleAnimationEnd: React.AnimationEventHandler<HTMLImageElement>;
@@ -14,7 +14,7 @@ const TrapDoor = ({
   behindDoorImg,
 }: TrapDoorProps): JSX.Element => {
   return (
-    <div className={peek ? "trap-door disabled" : "trap-door"}>
+    <div className={peek ? 'trap-door disabled' : 'trap-door'}>
       <div className="trap-door-cover">
         <div className="trap-door-cover-text">{displayedText}</div>
       </div>
