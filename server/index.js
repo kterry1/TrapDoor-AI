@@ -1,11 +1,10 @@
-const express = require("express");
-const cors = require("cors");
-const bodyParser = require("body-parser");
-require("dotenv").config();
-const { Configuration, OpenAIApi } = require("openai");
+const express = require('express');
+const cors = require('cors');
+const bodyParser = require('body-parser');
+require('dotenv').config();
+const { Configuration, OpenAIApi } = require('openai');
 
 const configuration = new Configuration({
-  organization: process.env.OPENAI_ORGANIZATION_KEY,
   apiKey: process.env.OPENAI_API_KEY,
 });
 const openai = new OpenAIApi(configuration);
@@ -15,9 +14,9 @@ app.use(bodyParser.json());
 app.use(cors());
 
 //endpoint for ChatGPT
-app.post("/chat", async (req, res) => {
+app.post('/chat', async (req, res) => {
   const completion = await openai.createCompletion({
-    model: "text-davinci-003",
+    model: 'text-davinci-003',
     prompt: `${req.body.prompt} - answer within 3 sentences.`,
     temperature: 0.3,
     max_tokens: 150,
