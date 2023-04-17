@@ -17,7 +17,7 @@
   "scripts": {
     "server": "cd server && npm start",
     "client": "cd client && npm i && npm dev",
-    "start": "cd server && npm install && node server/index.js",
+    "start": "cd server && npm install && node index.js",
     "build": "cd client && npm install && npm run build",
     "postinstall": "npm run build"
   },
