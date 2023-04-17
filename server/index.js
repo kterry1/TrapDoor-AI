@@ -27,6 +27,10 @@ app.post('/chat', async (req, res) => {
   res.send(completion.data.choices[0].text);
 });
 
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, '../client/dist', 'index.html'));
+});
+
 const port = process.env.PORT || 4000;
 app.listen(port, () => {
   console.log(`Server is listening on ${port}`);
