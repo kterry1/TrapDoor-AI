@@ -10,7 +10,7 @@
     "server": "cd server && npm start",
     "client": "cd client && npm i && npm dev",
     "start": "npm run server",
-    "build": "tsc && cd client && npm i && npm run build"
+    "build": "cd client && npm i && npm run build"
   },
   "husky": {
     "hooks": {
