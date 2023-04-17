@@ -1,6 +1,4 @@
 const express = require('express');
-const cors = require('cors');
-const bodyParser = require('body-parser');
 require('dotenv').config();
 const { Configuration, OpenAIApi } = require('openai');
 
@@ -10,8 +8,8 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 
 const app = express();
-app.use(bodyParser.json());
-app.use(cors());
+
+app.use(express.static(path.resolve(__dirname, '../client/dist')));
 
 //endpoint for ChatGPT
 app.post('/chat', async (req, res) => {
@@ -28,7 +26,7 @@ app.post('/chat', async (req, res) => {
   res.send(completion.data.choices[0].text);
 });
 
-const port = 4000;
+const port = process.env.PORT || 4000;
 app.listen(port, () => {
   console.log(`Server is listening on ${port}`);
 });

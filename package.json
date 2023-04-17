@@ -17,8 +17,8 @@
   "scripts": {
     "server": "cd server && npm start",
     "client": "cd client && npm i && npm dev",
-    "start": "npm run server",
-    "build": "cd client && npm i && npm run build"
+    "start": "node server/index.js",
+    "build": "cd client && npm install && npm run build"
   },
   "husky": {
     "hooks": {
