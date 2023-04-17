@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const cors = require('cors');
 require('dotenv').config();
 const { Configuration, OpenAIApi } = require('openai');
 
@@ -9,6 +10,12 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 
 const app = express();
+app.use(cors());
+// Parse JSON requests
+app.use(express.json());
+
+// Parse URL-encoded requests
+app.use(express.urlencoded({ extended: false }));
 
 app.use(express.static(path.resolve(__dirname, '../client/dist')));
 

@@ -8,7 +8,6 @@ import TrapDoor from '../trap-door';
 import SideLinks from '../side-links';
 import ChatBubble from '../chat-bubble/chat-bubble';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import { API_URL } from '../../constants';
 
 async function fetchData(
   url: string,
