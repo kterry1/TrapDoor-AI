@@ -7,10 +7,10 @@
     "typescript": "^5.0.4"
   },
   "scripts": {
-    "server": "cd server && pnpm start",
-    "client": "cd client && pnpm i && pnpm dev",
-    "start": "pnpm run server",
-    "build": "cd client && pnpm i && pnpm run build"
+    "server": "cd server && npm start",
+    "client": "cd client && npm i && npm dev",
+    "start": "npm run server",
+    "build": "cd client && npm i && npm run build"
   },
   "husky": {
     "hooks": {
