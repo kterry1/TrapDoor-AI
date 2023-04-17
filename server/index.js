@@ -10,7 +10,21 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 
 const app = express();
-app.use(cors());
+
+const productionSite = 'https://trapdoor-ai.herokuapp.com';
+const localhost = 'http://localhost:4001';
+const allowedOrigins = [productionSite, localhost];
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      if (allowedOrigins.indexOf(origin) !== -1 || origin === undefined) {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
+  }),
+);
 // Parse JSON requests
 app.use(express.json());
 
