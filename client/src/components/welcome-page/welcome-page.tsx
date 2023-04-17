@@ -1,19 +1,19 @@
-import "./welcome-page.css";
-import axios from "axios";
-import AnimatedSheepSVG from "../../assets/silly-sheep.svg";
-import SendSVG from "../../assets/send.svg";
-import { useRef, useState } from "react";
-import Button from "../button";
-import TrapDoor from "../trap-door";
-import SideLinks from "../side-links";
-import ChatBubble from "../chat-bubble/chat-bubble";
-import { CSSTransition, TransitionGroup } from "react-transition-group";
-import { API_URL } from "../../constants";
+import './welcome-page.css';
+import axios from 'axios';
+import AnimatedSheepSVG from '../../assets/silly-sheep.svg';
+import SendSVG from '../../assets/send.svg';
+import { useRef, useState } from 'react';
+import Button from '../button';
+import TrapDoor from '../trap-door';
+import SideLinks from '../side-links';
+import ChatBubble from '../chat-bubble/chat-bubble';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import { API_URL } from '../../constants';
 
 async function fetchData(
   url: string,
   data: { prompt: string },
-  setData: React.Dispatch<React.SetStateAction<string>>
+  setData: React.Dispatch<React.SetStateAction<string>>,
 ) {
   try {
     const response = await axios.post(url, data);
@@ -26,8 +26,8 @@ async function fetchData(
 const WelcomePage = (): JSX.Element => {
   const [peek, setPeek] = useState<boolean>(false);
   const [activatedChat, setActivatedChat] = useState<boolean>(false);
-  const [prompt, setPrompt] = useState<string>("");
-  const [data, setData] = useState<string>("");
+  const [prompt, setPrompt] = useState<string>('');
+  const [data, setData] = useState<string>('');
   const inputRef = useRef<HTMLInputElement | null>(null);
 
   const handleEntered = () => {
@@ -47,7 +47,7 @@ const WelcomePage = (): JSX.Element => {
             handleClick={() => setPeek(true)}
           />
           <Button displayedText="HOVER TO OPEN THE DOOR" buttonTheme="hover" />
-          <div style={{ position: "relative", width: "270px" }}>
+          <div style={{ position: 'relative', width: '270px' }}>
             <TransitionGroup component={null}>
               {!activatedChat && (
                 <CSSTransition
@@ -88,19 +88,19 @@ const WelcomePage = (): JSX.Element => {
                         if (data.length < 0) {
                           return;
                         }
-                        return fetchData(API_URL, { prompt: prompt }, setData);
+                        return fetchData('/chat', { prompt: prompt }, setData);
                       }}
                     />
                     <ChatBubble
                       handleExit={() => {
                         setActivatedChat(false);
-                        setData("");
-                        setPrompt("");
+                        setData('');
+                        setPrompt('');
                       }}
                       data={data}
                       handleReset={() => {
-                        setData("");
-                        setPrompt("");
+                        setData('');
+                        setPrompt('');
                       }}
                     />
                   </div>
