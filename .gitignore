@@ -16,12 +16,6 @@ client/node_modules/.cache/
 # JavaScript files created by `tsc`
 client/src/**/*.js
 client/src/**/*.jsx
-client/src/*.js
-client/src/*.jsx
-client/src/**/*.test.js
-client/src/**/*.test.jsx
-client/src/*.test.js
-client/src/*.test.jsx
 !jest.config.js
 
 # Node.js dependencies
