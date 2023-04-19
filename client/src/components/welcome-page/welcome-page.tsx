@@ -2,7 +2,7 @@ import './welcome-page.css';
 import axios from 'axios';
 import AnimatedSheepSVG from '../../assets/silly-sheep.svg';
 import SendSVG from '../../assets/send.svg';
-import { useRef, useState } from 'react';
+import { useReducer, useRef, useState } from 'react';
 import Button from '../button';
 import TrapDoor from '../trap-door';
 import SideLinks from '../side-links';
@@ -12,21 +12,84 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 async function fetchData(
   url: string,
   data: { prompt: string },
-  setData: React.Dispatch<React.SetStateAction<string>>,
+  dispatch: React.Dispatch<chatAction>,
 ) {
   try {
     const response = await axios.post(url, data);
-    setData(response.data);
+    dispatch({ type: 'SET_DATA', payload: response.data });
   } catch (error) {
     console.error(`Error fetching data: ${error}`);
   }
 }
 
+type chatActionTypes =
+  | 'ENTER_CHAT'
+  | 'EXIT_CHAT'
+  | 'RESET_CHAT'
+  | 'SET_PROMPT'
+  | 'SET_DATA';
+
+interface chatAction {
+  type: chatActionTypes;
+  payload?: string;
+}
+
+const chatReducer = (
+  state: chatStateTypes,
+  action: chatAction,
+): chatStateTypes => {
+  switch (action.type) {
+    case 'ENTER_CHAT':
+      return {
+        ...state,
+        activatedChat: true,
+      };
+    case 'EXIT_CHAT':
+      return {
+        ...state,
+        activatedChat: false,
+        prompt: '',
+        data: '',
+      };
+    case 'RESET_CHAT':
+      return {
+        ...state,
+        prompt: '',
+        data: '',
+      };
+    case 'SET_PROMPT':
+      return {
+        ...state,
+        prompt: action.payload!,
+      };
+    case 'SET_DATA':
+      return {
+        ...state,
+        data: action.payload!,
+      };
+    default:
+      return state;
+  }
+};
+
+interface chatStateTypes {
+  activatedChat: boolean;
+  prompt: string;
+  data: string;
+}
+
+const initialChatState: chatStateTypes = {
+  activatedChat: false,
+  prompt: '',
+  data: '',
+};
+
 const WelcomePage = (): JSX.Element => {
   const [peek, setPeek] = useState<boolean>(false);
-  const [activatedChat, setActivatedChat] = useState<boolean>(false);
-  const [prompt, setPrompt] = useState<string>('');
-  const [data, setData] = useState<string>('');
+  const [{ activatedChat, prompt, data }, dispatch] = useReducer(
+    chatReducer,
+    initialChatState,
+  );
   const inputRef = useRef<HTMLInputElement | null>(null);
 
   const handleEntered = () => {
@@ -56,7 +119,7 @@ const WelcomePage = (): JSX.Element => {
                   unmountOnExit
                 >
                   <Button
-                    handleClick={() => setActivatedChat(true)}
+                    handleClick={() => dispatch({ type: 'ENTER_CHAT' })}
                     displayedText="LET'S CHAT - AI"
                     buttonTheme="ai"
                   />
@@ -72,35 +135,32 @@ const WelcomePage = (): JSX.Element => {
                 >
                   <div className="input-wrapper">
                     <input
-                      disabled={data.length < 0}
                       ref={inputRef}
                       value={prompt}
                       type="text"
                       maxLength={32}
                       className="button"
-                      onChange={(e) => setPrompt(e.target.value)}
+                      onChange={(e) =>
+                        dispatch({
+                          type: 'SET_PROMPT',
+                          payload: e.target.value,
+                        })
+                      }
                     />
                     <img
                       src={SendSVG}
                       className="send-chat-msg-button"
                       onClick={() => {
-                        if (data.length < 0) {
+                        if (prompt?.length <= 0) {
                           return;
                         }
-                        return fetchData('/chat', { prompt: prompt }, setData);
+                        return fetchData('/chat', { prompt: prompt }, dispatch);
                       }}
                     />
                     <ChatBubble
-                      handleExit={() => {
-                        setActivatedChat(false);
-                        setData('');
-                        setPrompt('');
-                      }}
+                      handleExit={() => dispatch({ type: 'EXIT_CHAT' })}
                       data={data}
-                      handleReset={() => {
-                        setData('');
-                        setPrompt('');
-                      }}
+                      handleReset={() => dispatch({ type: 'RESET_CHAT' })}
                     />
                   </div>
                 </CSSTransition>
